@@ -26,15 +26,14 @@ const images = [
 ];
 
 const galleryList = document.querySelector(".gallery");
-let markup = [];
+let markup = "";
 
-images.forEach((image) => {
-  markup = images
-    .map((image) => {
-      return `<li>
+markup = images
+  .map((image) => {
+    return `<li>
         <img src="${image.url}" alt="${image.alt}" width="360px" height="300px">
       </li>\n`;
-    })
-    .join("");
-});
+  })
+  .join("");
+
 galleryList.insertAdjacentHTML("afterbegin", markup);

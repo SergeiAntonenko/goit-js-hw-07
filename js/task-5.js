@@ -5,13 +5,13 @@ function getRandomHexColor() {
 }
 
 const body = document.querySelector("body");
-const widget = document.querySelector(".widget");
-const widgetBtn = widget.querySelector(".change-color");
-const widgetSpan = widget.firstElementChild.firstElementChild;
+const widgetBtn = document.querySelector(".change-color");
+const colorSpan = document.querySelector(".color");
 
 widgetBtn.addEventListener("click", onBtnClick);
 
 function onBtnClick(e) {
-  widgetSpan.textContent = getRandomHexColor();
-  body.style = `background-color: ${widgetSpan.textContent}`;
+  const color = getRandomHexColor();
+  body.style.backgroundColor = color;
+  colorSpan.textContent = color;
 }

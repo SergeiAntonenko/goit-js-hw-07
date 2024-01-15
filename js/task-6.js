@@ -14,17 +14,20 @@ createBtn.addEventListener("click", onAddBtnClick);
 destroyBtn.addEventListener("click", onDestroyBtnClick);
 
 function onAddBtnClick() {
-  let markup = "";
+  const amount = parseInt(inputNumber.value, 10);
+  if (amount < 1 || amount > 100) {
+    return;
+  }
+
   boxContainer.innerHTML = "";
-  for (let i = 0; i < inputNumber.value; i++) {
-    if (inputNumber.value >= 1 && inputNumber.value <= 100) {
-      markup += `<div
+  let markup = "";
+  for (let i = 0; i < amount; i++) {
+    markup += `<div
         class="box"
         style="background-color: ${getRandomHexColor()}; width: ${
-        30 + i * 10
-      }px; height: ${30 + i * 10}px"
+      30 + i * 10
+    }px; height: ${30 + i * 10}px"
       ></div>`;
-    }
   }
   boxContainer.insertAdjacentHTML("beforeend", markup);
   inputNumber.value = "";
